@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>dart_llm_tools</title>
+    <link rel="stylesheet" href="/assets/test-console.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Korean Filing Retrieval For LLMs</p>
+          <h1 id="appTitle">dart_llm_tools</h1>
+          <p class="hero-text">
+            하나의 tool로, LLM이 필요할 때만 한국 기업 DART 공시를 찾아오게 만듭니다.
+            아래 playground에서는 chat model이 tool 사용 여부를 판단하고, 내부 DART worker가 실제 공시 근거를 수집하는 흐름을 바로 확인할 수 있습니다.
+          </p>
+        </div>
+        <div class="hero-side">
+          <div class="hero-note">
+            <span class="note-label">Demo Mode</span>
+            <strong>Advanced Tool Flow</strong>
+          </div>
+          <div class="hero-note">
+            <span class="note-label">Surface</span>
+            <strong>Single Public Tool</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel control-panel">
+        <div class="panel-header">
+          <div>
+            <h2>Playground</h2>
+            <p>provider를 선택하고 질문을 보내면, LLM이 tool 호출 여부를 결정한 뒤 최종 답변을 만듭니다.</p>
+          </div>
+          <div id="statusPill" class="status-pill idle">Idle</div>
+        </div>
+
+        <div class="control-grid">
+          <label class="field compact">
+            <span>Provider</span>
+            <select id="providerSelect"></select>
+          </label>
+
+          <div class="stack-card">
+            <span class="stack-label">Chat Model</span>
+            <strong id="chatModelValue" class="stack-value">-</strong>
+          </div>
+
+          <div class="stack-card">
+            <span class="stack-label">DART Tool Model</span>
+            <strong id="toolModelValue" class="stack-value">-</strong>
+          </div>
+        </div>
+
+        <label class="field prompt-field">
+          <span>Question</span>
+          <textarea
+            id="questionInput"
+            placeholder="예: 삼성전자 최근 사업보고서에서 유형자산 관련 감가상각비 설명 찾아줘"
+          ></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="runBtn" class="run-btn">Run Query</button>
+        </div>
+      </section>
+
+      <section class="outputs-grid">
+        <section class="panel log-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Log Box</h2>
+              <p>LLM 요청, tool 호출, 수집 결과를 순서대로 보여줍니다.</p>
+            </div>
+          </div>
+          <div id="logBox" class="log-box"></div>
+        </section>
+
+        <section class="panel result-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Assistant Result</h2>
+              <p id="resultMeta" class="result-meta">No run yet</p>
+            </div>
+          </div>
+          <pre id="resultBox" class="result-box"></pre>
+        </section>
+      </section>
+    </main>
+
+    <script src="/assets/test-console.js"></script>
+  </body>
+</html>
