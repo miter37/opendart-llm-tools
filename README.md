@@ -17,16 +17,9 @@ Example scripts and demo web apps are included.
 아래 3줄 정도만 추가하면 Gemini API 클라이언트에 DART tool을 바로 붙일 수 있습니다.
 
 ```python
-import os
-from google.genai import types
 from opendart_llm_tools import dart_tool_gemini
-
-tool = dart_tool_gemini(
-    dart_api_key=os.environ["DART_API_KEY"],
-    gemini_api_key=os.environ["GEMINI_API_KEY"],
-)
-
-config = types.GenerateContentConfig(tools=[tool])
+tool = dart_tool_gemini( dart_api_key=os.environ["DART_API_KEY"],    gemini_api_key=os.environ["GEMINI_API_KEY"], )
+#config = types.GenerateContentConfig(tools=[tool])   # gemini api config 내에  tools 추가
 ```
 
 ## Install
