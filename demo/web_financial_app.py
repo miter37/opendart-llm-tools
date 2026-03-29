@@ -14,7 +14,8 @@ from openai import OpenAI
 from pydantic import BaseModel
 
 BASE_DIR = Path(__file__).resolve().parent
-SRC_DIR = BASE_DIR / "src"
+PROJECT_ROOT = BASE_DIR.parent
+SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
@@ -24,9 +25,9 @@ from opendart_llm_tools.opendart_llm_tools import (
     _resolve_gemini_api_keys,
 )
 
-WEB_DIR = BASE_DIR / "web"
-CSS_PATH = BASE_DIR / "web_app.css"
-JS_PATH = BASE_DIR / "web_app.js"
+WEB_DIR = PROJECT_ROOT / "web"
+CSS_PATH = PROJECT_ROOT / "web_app.css"
+JS_PATH = PROJECT_ROOT / "web_app.js"
 
 
 class CompanySearchRequest(BaseModel):
@@ -47,7 +48,7 @@ class AnalyzeRequest(BaseModel):
 
 @lru_cache(maxsize=1)
 def get_key_env() -> Dict[str, str]:
-    return _load_key_env(str(BASE_DIR / "key.env"))
+    return _load_key_env(str(PROJECT_ROOT / "key.env"))
 
 
 @lru_cache(maxsize=1)

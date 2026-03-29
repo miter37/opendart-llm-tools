@@ -146,7 +146,7 @@ async function loadConfig() {
   const response = await fetch("/api/config");
   const data = await response.json();
   appConfig = data || appConfig;
-  appTitle.textContent = appConfig.title || "dart_llm_tools";
+  appTitle.textContent = appConfig.title || "opendart_llm_tools";
 
   const providerEntries = Object.entries(appConfig.providers || {});
   providerSelect.innerHTML = providerEntries
