@@ -114,7 +114,7 @@ tool = dart_tool_gemini(
 )
 
 response = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3.1-flash-lite-preview",
     contents="삼성전자 최근 사업보고서에서 유형자산 관련 감가상각비 설명 찾아줘",
     config=types.GenerateContentConfig(tools=[tool]),
 )
