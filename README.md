@@ -1,7 +1,22 @@
-﻿# dart_llm_tools
+# opendart-llm-tools
 
-한국어: `dart_llm_tools`는 OpenAI, Gemini 같은 LLM에 한국 DART 공시 조회 기능을 붙일 수 있게 해주는 Python 도구입니다.  
-English: `dart_llm_tools` is a Python toolkit for adding Korean DART filing retrieval to LLMs such as OpenAI and Gemini.
+한국어: `opendart-llm-tools`는 OpenAI, Gemini 같은 LLM에 한국 DART 공시 조회 기능을 붙일 수 있게 해주는 Python 도구입니다.  
+English: `opendart-llm-tools` is a Python toolkit for adding Korean DART filing retrieval to LLMs such as OpenAI and Gemini.
+
+한국어: 단 3줄 추가로, LLM API가 한국 DART 공시를 참고해 답하게 만들 수 있습니다.  
+English: With just 3 extra lines, your LLM API client can answer using Korean DART filings.
+
+```python
+from opendart_llm_tools import dart_tool_gemini
+
+tool = dart_tool_gemini(
+    dart_api_key=os.environ["DART_API_KEY"],
+    gemini_api_key=os.environ["GEMINI_API_KEY"],
+)
+
+# add to your API client
+config=types.GenerateContentConfig(tools=[tool])
+```
 
 한국어: 이 패키지는 필요한 공시를 찾고, 관련 본문과 주석을 추출하고, 근거 텍스트와 출처를 구조화해서 반환합니다.  
 English: The package finds relevant filings, extracts useful body or note text, and returns structured evidence text with source locations.
@@ -56,7 +71,7 @@ English: Do not commit `key.env` to a public repository; use it only for local d
 
 ```python
 import os
-from dart_llm_tools import run_dart_tool_call
+from opendart_llm_tools import run_dart_tool_call
 
 result = run_dart_tool_call(
     "find_dart_material",
@@ -75,7 +90,7 @@ print(result["source_paths"])
 
 ```python
 import os
-from dart_llm_tools import run_dart_tool_call
+from opendart_llm_tools import run_dart_tool_call
 
 result = run_dart_tool_call(
     "find_dart_material",
@@ -102,7 +117,7 @@ import os
 from google import genai
 from google.genai import types
 
-from dart_llm_tools import dart_tool_gemini
+from opendart_llm_tools import dart_tool_gemini
 
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
@@ -132,7 +147,7 @@ import json
 import os
 
 from openai import OpenAI
-from dart_llm_tools import dart_llm_tools_openai, run_dart_tool_call
+from opendart_llm_tools import dart_llm_tools_openai, run_dart_tool_call
 
 client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
@@ -176,7 +191,7 @@ English: With OpenAI, attach the tool schema and execute incoming function calls
 
 ```python
 import os
-from dart_llm_tools import run_dart_tool_call
+from opendart_llm_tools import run_dart_tool_call
 
 result = run_dart_tool_call(
     "find_dart_material",
@@ -211,7 +226,7 @@ English: In advanced mode, you can handle raw evidence directly.
 
 ## Project Layout / 프로젝트 구조
 
-- `src/dart_llm_tools/`: 한국어: 실제 패키지 코드 / English: actual package code
+- `src/opendart_llm_tools/`: 한국어: 실제 패키지 코드 / English: actual package code
 - `examples/`: 한국어: 사용 예제 / English: usage examples
 - `demo/`: 한국어: 데모 웹앱 / English: demo web app
 - `pyproject.toml`: 한국어: 패키지 메타데이터 / English: package metadata

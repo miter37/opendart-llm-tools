@@ -22,8 +22,8 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from dart_llm_tools import create_dart_agent, dart_llm_tools_gemini, dart_llm_tools_openai
-from dart_llm_tools.opendart_openai_function_tools import (
+from opendart_llm_tools import create_dart_agent, dart_llm_tools_gemini, dart_llm_tools_openai
+from opendart_llm_tools.opendart_llm_tools import (
     GEMINI_DEFAULT_MODEL,
     OPENAI_DEFAULT_MODEL,
     _load_key_env,
@@ -35,7 +35,7 @@ HTML_PATH = BASE_DIR / "test_console.html"
 CSS_PATH = BASE_DIR / "web_test_console.css"
 JS_PATH = BASE_DIR / "web_test_console.js"
 
-APP_TITLE = "dart_llm_tools"
+APP_TITLE = "opendart_llm_tools"
 OPENAI_CHAT_MODEL = OPENAI_DEFAULT_MODEL
 OPENAI_DART_TOOL_MODEL = OPENAI_DEFAULT_MODEL
 GEMINI_CHAT_MODEL = GEMINI_DEFAULT_MODEL

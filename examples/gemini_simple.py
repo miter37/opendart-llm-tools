@@ -10,7 +10,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from dart_llm_tools import dart_tool_gemini
+from opendart_llm_tools import dart_tool_gemini
 
 client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 

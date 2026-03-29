@@ -7,7 +7,7 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from dart_llm_tools import run_dart_tool_call
+from opendart_llm_tools import run_dart_tool_call
 
 result = run_dart_tool_call(
     "find_dart_material",

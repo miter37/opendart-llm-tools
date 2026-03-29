@@ -1,6 +1,6 @@
-"""Public package exports for dart_llm_tools."""
+"""Public package exports for opendart_llm_tools."""
 
-from .opendart_openai_function_tools import (
+from .opendart_llm_tools import (
     DartMaterialResult,
     DartToolRunner,
     create_dart_agent,

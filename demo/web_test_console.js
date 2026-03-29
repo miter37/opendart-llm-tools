@@ -10,7 +10,7 @@ const chatModelValue = document.getElementById("chatModelValue");
 const toolModelValue = document.getElementById("toolModelValue");
 
 let appConfig = {
-  title: "dart_llm_tools",
+  title: "opendart_llm_tools",
   providers: {},
 };
 
